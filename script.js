@@ -83,7 +83,6 @@ const getData = (url) => {
       return response.json();
     })
     .then((datas) => {   
-      console.log(datas.data);
       const data = datas.data;
       fillTables(data);
     });
