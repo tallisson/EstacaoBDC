@@ -7,31 +7,111 @@
   <title>Dados Estação Climática BdC</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
-<body>
-  <header class="container-fluid">
-    <div class="jumbotron">
-      <h1 class="display-4">Olá! Td bom? :)</h1>
-      <p class="lead">Esta é uma página para exibir dados de clima de Barra do Corda</p>
-    </div>
+<body class="container-fluid">
+  <header class="my-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/index.html">Estação BdC</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/about.html">Sobre</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   </header>
-  <main class="container">
-    <h2>Medidas em Tempo Real</h2>
-    <hr>
-    <table class="table" id="table-data">
+  <main class="container mb-4">    
+    <table 
+      class="table" 
+      id="table-outdoor"
+      style="overflow: auto;"
+    >
+      <fieldset class="text-center">
+        <legend>Dados do ambiente externo</legend>
+      </fieldset>
       <thead>
-        <tr>
-          <th scope="col">#</th>
+        <tr class="text-center">
           <th scope="col">Temperatura</th>
           <th scope="col">Sensação Térmica</th>
           <th scope="col">Umidade</th>
+          <th scope="col">Ponto de Condesação</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="text-center">
       </tbody>
     </table>
 
-    <div id="data"></div>
+    <hr>
+
+    <table class="table" id="table-indoor">
+      <fieldset class="text-center">
+        <legend>Dados do ambiente interno</legend>
+      </fieldset>
+      <thead>
+        <tr class="text-center">
+          <th scope="col">Temperatura</th>
+          <th scope="col">Umidade</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+      </tbody>
+    </table>
+
+    <hr>
+
+    <table>
+      <fieldset class="text-center">
+        <legend>Radiação Solar e UV</legend>
+      </fieldset>
+      <table class="table" id="table-solar-uvi">
+        <thead class="text-center">
+          <th scope="col">Radiação Solar</th>
+          <th scope="col">Radiação UV</th>
+        </thead>
+        <tbody class="text-center">          
+        </tbody>
+      </table>
+    </table>
+
+    <hr>
+
+    <table>
+      <fieldset class="text-center">
+        <legend>Vento</legend>
+      </fieldset>
+      <table class="table" id="table-wind">
+        <thead class="text-center">
+          <th scope="col">Direção do Vento</th>
+          <th scope="col">Velocidade do Vento</th>
+          <th scope="col">Rajada de Vento</th>
+        </thead>
+        <tbody class="text-center">          
+        </tbody>
+      </table>
+    </table>
+
+    <table>
+      <fieldset class="text-center">
+        <legend>Pressão</legend>
+      </fieldset>
+      <table class="table" id="table-pressure">
+        <thead class="text-center">
+          <th scope="col">Pressão Absoluta</th>
+          <th scope="col">Pressão Relativa</th>
+        </thead>
+        <tbody class="text-center">          
+        </tbody>
+      </table>
+    </table>
   </main>
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
