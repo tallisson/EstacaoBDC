@@ -81,7 +81,7 @@ const setLastUpdate = () => {
   const dateHour = new Date();
   
   let hour = dateHour.getHours();
-  hour = hour > 9 ? hour : `0{hour}`;
+  hour = hour > 9 ? hour : `0${hour}`;
   let minutes = dateHour.getMinutes();
   minutes = minutes > 9 ? minutes : `0${minutes}`;
 
