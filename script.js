@@ -127,9 +127,8 @@ const getData = async () => {
 }
 
 const refresh = async () => {
-  const data = await getData();
-  console.log(data);
   toggleFLoader();
+  const data = await getData();
   toggleMain();
   setLastUpdate();
   fillTables(data);
