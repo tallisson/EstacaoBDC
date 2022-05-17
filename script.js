@@ -127,15 +127,14 @@ const getData = async () => {
 }
 
 const refresh = async () => {
-  toggleFLoader();
   const data = await getData();
+  toggleFLoader();
   toggleMain();
   setLastUpdate();
   fillTables(data);
 }
 
 (() => {
-  setTimeout(() => refresh(), 2000);
   const timeRefresh = 300000;
   setInterval(() => refresh(), timeRefresh);
 })();
