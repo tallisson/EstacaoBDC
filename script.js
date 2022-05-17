@@ -79,9 +79,16 @@ const fillTables = (data) => {
 
 const setLastUpdate = () => {
   const dateHour = new Date();
-  const hour = `Última atualização às ${dateHour.getHours()}:${dateHour.getMinutes()}`;
-  const lastUpdateP = document.querySelector('#last-update p');
-  lastUpdateP.innerHTML = hour;
+  
+  let hour = dateHour.getHours();
+  hour = hour > 9 ? hour : `0{hour}`;
+  let minutes = dateHour.getMinutes();
+  minutes = minutes > 9 ? minutes : `0${minutes}`;
+
+  const hourP = `Última atualização às ${hour}:${minutes}`;
+  const lastUpdateP = document.querySelector('#last-update span');
+  lastUpdateP.innerHTML = `<i>&#9729;</i> 
+    ${hourP}`;
 }
 
 const getData = (url) => {
