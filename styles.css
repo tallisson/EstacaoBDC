@@ -1,0 +1,32 @@
+@media screen and (max-width: 480px) {
+  .table thead th {
+    font-size: 85%;
+  }
+}
+.f-loader {
+  display: flex;
+  justify-content: center;
+}
+.f-loader-hidden {
+  display: none;
+}
+.c-loader {
+  border: 6px solid #e5e5e5;
+  border-top-color: #51d4db;
+  height: 50px;
+  width: 50px;
+  animation: is-rotating 1s infinite;
+  border: 6px solid #e5e5e5;
+  border-radius: 50%;
+  border-top-color: #51d4db;
+  height: 50px;
+  width: 50px;
+}
+@keyframes is-rotating {
+  to {
+    transform: rotate(1turn);
+  }
+}
+.content-hidden {
+  display: none;
+}

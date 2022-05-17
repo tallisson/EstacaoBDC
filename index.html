@@ -6,15 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dados Estação Climática BdC</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css" type="text/css">
   <link rel="shortcut icon" href="icon.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <style>
-    @media screen and (max-width: 480px) {
-      .table thead th {
-        font-size: 85%;
-      }
-    }
-  </style>
 </head>
 <body class="container-fluid">
   <header class="my-4">
@@ -36,19 +30,23 @@
       </div>
     </nav>
 
-    <div id="last-update" class="text-center mt-4">
-      <span class="bg-success text-light px-2 py-2 rounded"></span>
-    </div>
-
     <h3 class="text-center mt-2">
       <span>Dados Metereológicos do IFMA -</span> <br>
       <span>Campus Barra do Corda</span>
     </h3>
+
+    <div class="f-loader mt-4">
+      <div class="c-loader"></div>
+    </div>
   </header>
 
   <hr>
 
-  <main class="container mb-2">    
+  <main class="container mb-2 content content-hidden">    
+    <div id="last-update" class="text-center my-4">
+      <span class="bg-success text-light px-2 py-2 rounded"></span>
+    </div>
+
     <table 
       class="table table-md" 
       id="table-outdoor"

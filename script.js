@@ -91,6 +91,31 @@ const setLastUpdate = () => {
     ${hourP}`;
 }
 
+const toggleMain = () => {
+  const loader = document.getElementsByClassName('content')[0];
+  if(!loader.classList.contains('content-hidden')) {
+    loader.classList.add('content-hidden');
+  } else {
+    loader.classList.remove('content-hidden');
+  }
+}
+
+const toggleFLoader = () => {
+  const loader = document.getElementsByClassName('f-loader')[0];
+  if(!loader.classList.contains('f-loader-hidden')) {
+    loader.classList.add('f-loader-hidden');
+  } else {
+    loader.classList.remove('f-loader-hidden');
+  }
+}
+
+const refresh = (data) => {
+  toggleFLoader();
+  toggleMain();
+  setLastUpdate();
+  fillTables(data);
+}
+
 const getData = (url) => {
   fetch(url())
     .then((response) => {
@@ -98,8 +123,9 @@ const getData = (url) => {
     })
     .then((datas) => {   
       const data = datas.data;
-      fillTables(data);
-      setLastUpdate();
+      setTimeout(() => { 
+        refresh(data);
+      }, 2000);      
     })
     .catch((error) => {
       console.log(error);
@@ -107,7 +133,7 @@ const getData = (url) => {
 }
 
 (() => {
-  getData(createUrl)
+  getData(createUrl);
   const timeRefresh = 300000;
   setInterval(() => getData(createUrl), timeRefresh);
 })();
