@@ -109,31 +109,34 @@ const toggleFLoader = () => {
   }
 }
 
-const refresh = (data) => {
+const getData = async () => {
+  const ps = fetch(createUrl())
+    .then((response) => {
+      return response.json();
+    })
+    .then((datas) => {   
+      const data = datas.data;
+      return data;      
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  
+  const data = await ps;
+  return data;
+}
+
+const refresh = async () => {
+  const data = await getData();
+  console.log(data);
   toggleFLoader();
   toggleMain();
   setLastUpdate();
   fillTables(data);
 }
 
-const getData = (url) => {
-  fetch(url())
-    .then((response) => {
-      return response.json();
-    })
-    .then((datas) => {   
-      const data = datas.data;
-      setTimeout(() => { 
-        refresh(data);
-      }, 2000);      
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}
-
 (() => {
-  getData(createUrl);
+  setTimeout(() => refresh(), 2000);
   const timeRefresh = 300000;
-  setInterval(() => getData(createUrl), timeRefresh);
+  setInterval(() => refresh(), timeRefresh);
 })();
