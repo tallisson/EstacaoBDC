@@ -108,5 +108,6 @@ const getData = (url) => {
 
 (() => {
   getData(createUrl)
-  setInterval(() => getData(createUrl), 1000 * 50);
+  const timeRefresh = 300000;
+  setInterval(() => getData(createUrl), timeRefresh);
 })();
