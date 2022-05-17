@@ -126,16 +126,26 @@ const getData = async () => {
   return data;
 }
 
-const refresh = async () => {
+const refresh = async () => {  
   const data = await getData();
-  toggleFLoader();
-  toggleMain();
+  toggleFLoader(); // Hide
+  toggleMain(); // Show
   setLastUpdate();
   fillTables(data);
 }
 
+const reset = () => {
+  toggleMain(); // Hide
+  toggleFLoader(); // Show
+}
+
 (() => {
-  setTimeout(() => refresh(), 2000);
+  setTimeout(() => {
+    refresh();
+  }, 2000);
   const timeRefresh = 300000;
-  setInterval(() => refresh(), timeRefresh);
+  setInterval(() => {
+    reset();
+    refresh();
+  }, timeRefresh);
 })();
