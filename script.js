@@ -13,7 +13,7 @@ const createUrl = () => {
 
 const fillOutdoorTable = ({ outdoor }) => {
   const tbody = document.querySelector('#table-outdoor tbody');
-  tbody.innerHTML += `
+  tbody.innerHTML = `
     <tr>
       <td>${outdoor.temperature.value} ºC</td>
       <td>${outdoor.feels_like.value} ºC</td>
@@ -25,7 +25,7 @@ const fillOutdoorTable = ({ outdoor }) => {
 
 const fillIndoorTable = ({ indoor }) => {
   const tbody = document.querySelector('#table-indoor tbody');
-  tbody.innerHTML += `
+  tbody.innerHTML = `
     <tr>
       <td>${indoor.temperature.value} ºC</td>
       <td>${indoor.humidity.value} %</td>
@@ -35,7 +35,7 @@ const fillIndoorTable = ({ indoor }) => {
 
 const fillSolarAndUviTable = ({ solar_and_uvi }) => {
   const tbody = document.querySelector('#table-solar-uvi tbody');
-  tbody.innerHTML += `
+  tbody.innerHTML = `
     <tr>
       <td>
         ${solar_and_uvi.solar.value} 
@@ -49,7 +49,7 @@ const fillSolarAndUviTable = ({ solar_and_uvi }) => {
 const fillWindTable = ({ wind }) => {
   const tbody = document.querySelector('#table-wind tbody');
   const { wind_direction, wind_gust, wind_speed } = wind;
-  tbody.innerHTML += `
+  tbody.innerHTML = `
     <tr>
       <td>${wind_direction.value}&deg;</td>      
       <td>${wind_speed.value} km/h</td>
@@ -61,7 +61,7 @@ const fillWindTable = ({ wind }) => {
 const fillPressureTable = ({ pressure }) => {
   const tbody = document.querySelector('#table-pressure tbody');
   const { absolute, relative } = pressure;
-  tbody.innerHTML += `
+  tbody.innerHTML = `
     <tr>
       <td>${absolute.value} mmHg</td>      
       <td>${relative.value} mmHg</td>
@@ -77,6 +77,13 @@ const fillTables = (data) => {
   fillPressureTable(data);
 }
 
+const setLastUpdate = () => {
+  const dateHour = new Date();
+  const hour = `Última atualização às ${dateHour.getHours()}:${dateHour.getMinutes()}`;
+  const lastUpdateP = document.querySelector('#last-update p');
+  lastUpdateP.innerHTML = hour;
+}
+
 const getData = (url) => {
   fetch(url())
     .then((response) => {
@@ -85,7 +92,8 @@ const getData = (url) => {
     .then((datas) => {   
       const data = datas.data;
       fillTables(data);
+      setLastUpdate();
     });
 }
 
-getData(createUrl)
+setInterval(() => getData(createUrl), 1000 * 50);
