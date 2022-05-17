@@ -135,6 +135,7 @@ const refresh = async () => {
 }
 
 (() => {
+  setTimeout(() => refresh(), 2000);
   const timeRefresh = 300000;
   setInterval(() => refresh(), timeRefresh);
 })();
