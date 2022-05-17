@@ -93,7 +93,13 @@ const getData = (url) => {
       const data = datas.data;
       fillTables(data);
       setLastUpdate();
+    })
+    .catch((error) => {
+      console.log(error);
     });
 }
 
-setInterval(() => getData(createUrl), 1000 * 50);
+(() => {
+  getData(createUrl)
+  setInterval(() => getData(createUrl), 1000 * 50);
+})();
