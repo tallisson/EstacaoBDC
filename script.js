@@ -69,12 +69,39 @@ const fillPressureTable = ({ pressure }) => {
   `;
 }
 
+const fillRainfall = ({ rainfall }) => {
+  const { daily, event, hourly, monthly, rain_rate, weekly, yearly } = rainfall;
+  const divDailyRain = document.getElementsByClassName('daily-rain')[0];
+  divDailyRain.innerHTML = `
+    <div class="text-center">
+      <p><strong>Taxa/hr (mm)</strong></p>
+      <p style="font-size: 145%;">${rain_rate.value}</p>
+    </div>
+    <div class="text-center">
+      <p><strong>Diária (mm)</strong></p>
+      <p style="font-size: 145%;">${daily.value}</p>
+    </div>
+  `;
+
+  const divDataRain = document.getElementsByClassName('data-rain')[0];
+  divDataRain.innerHTML = `
+    <div class="text-center">
+      <p><strong>Agora:</strong> ${event.value} mm</p>
+      <p><strong>Por Hora:</strong> ${hourly.value} mm</p>
+      <p><strong>Semanalmente:</strong> ${weekly.value} mm</p>
+      <p><strong>Mensalmente:</strong> ${monthly.value} mm</p>
+      <p><strong>Anualmente:</strong> ${yearly.value} mm</p>
+    </div>
+  `;
+}
+
 const fillTables = (data) => {
   fillOutdoorTable(data);
   fillIndoorTable(data);
   fillSolarAndUviTable(data);
   fillWindTable(data);
   fillPressureTable(data);
+  fillRainfall(data);
 }
 
 const setLastUpdate = () => {
@@ -121,7 +148,7 @@ const getData = async () => {
     .catch((error) => {
       console.log(error);
     });
-  
+
   const data = await ps;
   return data;
 }
