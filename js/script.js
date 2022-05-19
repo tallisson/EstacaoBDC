@@ -69,17 +69,23 @@ const fillPressureTable = ({ pressure }) => {
   `;
 }
 
+const transformInToMM = (inchValue) => {
+  const factor = 25.4;
+  const mmValue = parseFloat(inchValue * factor).toFixed(1);
+  return mmValue;
+}
+
 const fillRainfall = ({ rainfall }) => {
   const { daily, event, hourly, monthly, rain_rate, weekly, yearly } = rainfall;
   const divDailyRain = document.getElementsByClassName('daily-rain')[0];
   divDailyRain.innerHTML = `
     <div class="text-center">
       <p><strong>Taxa/hr (mm)</strong></p>
-      <p style="font-size: 110%">${rain_rate.value}</p>
+      <p style="font-size: 110%">${transformInToMM(rain_rate.value)}</p>
     </div>
     <div class="text-center">
       <p><strong>Diária (mm)</strong></p>
-      <p style="font-size: 110%;">${daily.value}</p>
+      <p style="font-size: 110%;">${transformInToMM(daily.value)}</p>
     </div>
   `;
 
@@ -87,11 +93,11 @@ const fillRainfall = ({ rainfall }) => {
   divDataRain.innerHTML = `
     <div class="text-center">
       <ul type="none">
-        <li><strong>Agora:</strong> ${event.value} mm</li>
-        <li><strong>Por Hora:</strong> ${hourly.value} mm</li>
-        <li><strong>Semanalmente:</strong> ${weekly.value} mm</li>
-        <li><strong>Mensalmente:</strong> ${monthly.value} mm</li>
-        <li><strong>Anualmente:</strong> ${yearly.value} mm</li>
+        <li><strong>Agora:</strong> ${transformInToMM(event.value)} mm</li>
+        <li><strong>Por Hora:</strong> ${transformInToMM(hourly.value)} mm</li>
+        <li><strong>Semanalmente:</strong> ${transformInToMM(weekly.value)} mm</li>
+        <li><strong>Mensalmente:</strong> ${transformInToMM(monthly.value)} mm</li>
+        <li><strong>Anualmente:</strong> ${transformInToMM(yearly.value)} mm</li>
       </ul>
     </div>
   `;
