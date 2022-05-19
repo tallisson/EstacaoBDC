@@ -95,9 +95,9 @@ const fillRainfall = ({ rainfall }) => {
       <ul type="none">
         <li><strong>Agora:</strong> ${transformInToMM(event.value)} mm</li>
         <li><strong>Por Hora:</strong> ${transformInToMM(hourly.value)} mm</li>
-        <li><strong>Semanalmente:</strong> ${transformInToMM(weekly.value)} mm</li>
-        <li><strong>Mensalmente:</strong> ${transformInToMM(monthly.value)} mm</li>
-        <li><strong>Anualmente:</strong> ${transformInToMM(yearly.value)} mm</li>
+        <li><strong>Semanal:</strong> ${transformInToMM(weekly.value)} mm</li>
+        <li><strong>Mensal:</strong> ${transformInToMM(monthly.value)} mm</li>
+        <li><strong>Anual:</strong> ${transformInToMM(yearly.value)} mm</li>
       </ul>
     </div>
   `;
