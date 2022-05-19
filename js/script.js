@@ -79,11 +79,11 @@ const fillRainfall = ({ rainfall }) => {
   const { daily, event, hourly, monthly, rain_rate, weekly, yearly } = rainfall;
   const divDailyRain = document.getElementsByClassName('daily-rain')[0];
   divDailyRain.innerHTML = `
-    <div class="text-center">
+    <div>
       <p><strong>Taxa/hr (mm)</strong></p>
       <p style="font-size: 110%">${transformInToMM(rain_rate.value)}</p>
     </div>
-    <div class="text-center">
+    <div>
       <p><strong>Diária (mm)</strong></p>
       <p style="font-size: 110%;">${transformInToMM(daily.value)}</p>
     </div>
@@ -91,7 +91,7 @@ const fillRainfall = ({ rainfall }) => {
 
   const divDataRain = document.getElementsByClassName('data-rain')[0];
   divDataRain.innerHTML = `
-    <div class="text-center">
+    <div>
       <ul type="none">
         <li><strong>Agora:</strong> ${transformInToMM(event.value)} mm</li>
         <li><strong>Por Hora:</strong> ${transformInToMM(hourly.value)} mm</li>
