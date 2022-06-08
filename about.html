@@ -17,6 +17,13 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="shortcut icon" href="./imgs/icon.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <!--[if IE 9]>
+    <link href="https://cdn.jsdelivr.net/gh/coliff/bootstrap-ie8/css/bootstrap-ie9.min.css" rel="stylesheet">
+  <![endif]-->
+  <!--[if lte IE 8]>
+    <link href="https://cdn.jsdelivr.net/gh/coliff/bootstrap-ie8/css/bootstrap-ie8.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/g/html5shiv@3.7.3"></script>
+  <![endif]-->
   <style>
     @media screen and (max-width: 1000px) {
       .div-img img {
@@ -80,13 +87,13 @@
       <ol class="col-md-6">        
         <li>
           <em>Temperatura Atmosférica:</em> É a medida de calor sensível nele armazenado, 
-          dado em graus (°) Celsius e medida por um termômetro ou sensores, obtidos a diferentes 
+          dado em graus Celsius (°C) e medida por um termômetro ou sensores, obtidos a diferentes 
           níveis da atmosfera terrestre.
         </li>
 
         <li>
-          <em>Sensação Térmica:</em> É a forma como os nossos sentidos percebem combinação que 
-          considera diversas variáveis meteorológicas, como a temperatura atmosférica, velocidade do 
+          <em>Sensação Térmica:</em> É a forma como os nossos sentidos percebem a combinação das 
+          variáveis meteorológicas, como a temperatura atmosférica, velocidade do 
           vento, a umidade do ar e a pressão atmosférica.
         </li>
 
@@ -105,7 +112,6 @@
         <li>
           <em>Radiação Solar:</em> É a designação dada à energia radiante emitida pelo Sol, 
           em particular aquela que é transmitida sob a forma de radiação eletromagnética. 
-          A radiação solar é dada em w/m2.
         </li>
 
         <li>
@@ -115,25 +121,24 @@
       </ol>
       <ol class="col-md-6" start="7">
         <li>
-          <em>Chuva:</em> Resulta da precipitação de partículas de água na forma de gotículas ou gotas 
-          das nuvens sobre a superfície da Terra.
+          <em>Chuva:</em> Resulta da precipitação de partículas de água na forma de gotículas ou 
+          gotas das nuvens sobre a superfície da Terra.
         </li>
 
         <li>
-          <em>Velocidade do Vento:</em> a velocidade (ou intensidade) do vento é uma grandeza 
-          vetorial com base na qual se medem, normalmente, os parâmetros da sua componente 
-          horizontal. Resulta das diferenças de pressão atmosférica, de origem térmica e está 
-          diretamente relacionada à radiação solar e aos processos de aquecimento das massas 
-          de ar entre duas regiões distintas. A velocidade do vento é dada em km/h.
+          <em>Velocidade do Vento:</em> A velocidade do vento é uma grandeza na qual
+          se mede a intensidade do vento por um compononete horizontal. 
+          Resulta das diferenças de pressão atmosférica, de origem térmica, 
+          da radiação solar entre duas regiões diferentes. A velocidade do vento é dada em km/h.
         </li>
 
         <li>
           <em>Rajada de Vento:</em> É a velocidade máxima do vento durante o registro da velocidade. 
-          Registrado em km/h
+          Registrado em km/h.
         </li>
 
         <li>
-          <em>Direção do Vento:</em>  definida como a direção de onde o vento sopra, define a posição a 
+          <em>Direção do Vento:</em> Definida como a direção de onde o vento sopra, define a posição a 
           partir da qual ele vem, e não para onde ele está indo. A direção é indicada conforme o ponto de 
           uma rosa dos ventos.
         </li>
@@ -141,7 +146,6 @@
         <li>
           <em>Pressão Atmosférica (hPa):</em> É a pressão exercida pelo peso da coluna de ar sobre uma 
           dada superfície, ou seja, representa o peso que a atmosfera exerce sobre uma unidade de área. 
-          A unidade utilizada é polegada ou milímetros de mercúrio (mmHg).
         </li>
       </ul>
     </div>
@@ -208,5 +212,18 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  <!--[if gte IE 9]><!-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!--<![endif]-->
+  <!--[if IE 9]>
+    <script src="https://cdn.jsdelivr.net/gh/coliff/bootstrap-ie8/js/bootstrap-ie9.min.js"></script>
+  <![endif]-->
+  <!--[if lte IE 8]>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/coliff/bootstrap-ie8/js/bootstrap-ie8.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.js"></script>
+  <![endif]-->  
 </body>
 </html>
