@@ -69,7 +69,7 @@ const fillPressureTable = ({ pressure }) => {
   `;
 }
 
-const transformInToMM = (inchValue) => {
+const transformToMM = (inchValue) => {
   const factor = 25.4;
   const mmValue = parseFloat(inchValue * factor).toFixed(1);
   return mmValue;
@@ -77,29 +77,38 @@ const transformInToMM = (inchValue) => {
 
 const fillRainfall = ({ rainfall }) => {
   const { daily, event, hourly, monthly, rain_rate, weekly, yearly } = rainfall;
-  const divDailyRain = document.getElementsByClassName('daily-rain')[0];
-  divDailyRain.innerHTML = `
-    <div>
-      <p><strong>Taxa/hr (mm)</strong></p>
-      <p style="font-size: 110%">${transformInToMM(rain_rate.value)}</p>
-    </div>
-    <div>
-      <p><strong>Diária (mm)</strong></p>
-      <p style="font-size: 110%;">${transformInToMM(daily.value)}</p>
-    </div>
-  `;
-
-  const divDataRain = document.getElementsByClassName('data-rain')[0];
-  divDataRain.innerHTML = `
-    <div>
-      <ul type="none">
-        <li><strong>Agora:</strong> ${transformInToMM(event.value)} mm</li>
-        <li><strong>Por Hora:</strong> ${transformInToMM(hourly.value)} mm</li>
-        <li><strong>Semanal:</strong> ${transformInToMM(weekly.value)} mm</li>
-        <li><strong>Mensal:</strong> ${transformInToMM(monthly.value)} mm</li>
-        <li><strong>Anual:</strong> ${transformInToMM(yearly.value)} mm</li>
-      </ul>
-    </div>
+  const tbody = document.querySelector('#table-rain tbody');
+  tbody.innerHTML = `
+  <tr>
+    <td class="align-middle">
+      <p class="font-weight-bold">Taxa/hr</p>
+      <p>${transformToMM(rain_rate.value)} (mm)</p>
+      <p class="font-weight-bold">Diário (mm)</p>
+      <p>${transformToMM(daily.value)}</p>
+    </td>
+    <td>
+      <p>
+        <span class="font-weight-bold">Agora:</span>
+        ${transformToMM(event.value)} mm
+      </p>
+      <p>
+        <span class="font-weight-bold">Por Hora:</span>
+        ${transformToMM(hourly.value)} mm
+      </p>
+      <p>
+        <span class="font-weight-bold">Semanal:</span>
+        ${transformToMM(weekly.value)} mm
+      </p>
+      <p>
+        <span class="font-weight-bold">Mensal:</span>
+        ${transformToMM(monthly.value)} mm
+      </p>
+      <p>
+        <span class="font-weight-bold">Anual:</span>
+        ${transformToMM(yearly.value)} mm
+      </p>
+    </td>
+  </tr>
   `;
 }
 
