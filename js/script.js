@@ -81,8 +81,8 @@ const fillRainfall = ({ rainfall }) => {
   tbody.innerHTML = `
   <tr>
     <td class="align-middle">
-      <p class="font-weight-bold">Taxa/hr</p>
-      <p>${transformToMM(rain_rate.value)} (mm)</p>
+      <p class="font-weight-bold">Taxa/hr (mm)</p>
+      <p>${transformToMM(rain_rate.value)}</p>
       <p class="font-weight-bold">Diário (mm)</p>
       <p>${transformToMM(daily.value)}</p>
     </td>
